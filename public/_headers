@@ -1,0 +1,14 @@
+# Cabeçalhos de segurança do FRONTEND (Netlify e Cloudflare Pages leem este arquivo automaticamente).
+# ⚠️ Troque https://api.SEUDOMINIO.com pelo endereço real da sua API (em 2 lugares).
+# Na Vercel/Nginx/Apache, aplique os mesmos cabeçalhos (exemplo de Nginx em docs/PRODUCAO.md).
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://api.SEUDOMINIO.com https://images.pexels.com; connect-src 'self' https://api.SEUDOMINIO.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

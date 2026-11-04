@@ -1,0 +1,21 @@
+# Ambiente local "parecido com produção": API + MongoDB. Uso: docker compose up --build
+# (Em produção real use um MongoDB gerenciado — Atlas — e NÃO este contêiner.)
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes: [mongo-data:/data/db]
+    # Sem portas publicadas: só a API enxerga o banco.
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./backend/.env
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/barbersync
+      NODE_ENV: development   # troque para production só com HTTPS e variáveis reais
+    depends_on: [mongo]
+    ports: ["5000:5000"]
+
+volumes:
+  mongo-data:

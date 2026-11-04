@@ -1,0 +1,4 @@
+# Como reportar uma vulnerabilidade (RFC 9116). Preencha antes de publicar.
+Contact: mailto:seguranca@SEUDOMINIO.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: pt, en
